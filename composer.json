@@ -1,0 +1,32 @@
+{
+    "name": "jacksleight/statamic-raster",
+    "autoload": {
+        "psr-4": {
+            "JackSleight\\StatamicRaster\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Raster",
+            "description": "Statamic Raster addon"
+        },
+        "laravel": {
+            "providers": [
+                "JackSleight\\StatamicRaster\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.1|^8.2|^8.3",
+        "statamic/cms": "^5.0",
+        "jacksleight/laravel-raster": "dev-main"
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    }
+}

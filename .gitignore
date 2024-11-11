@@ -1,0 +1,5 @@
+vendor
+mix-manifest.json
+/composer.lock
+/.idea
+.DS_Store
