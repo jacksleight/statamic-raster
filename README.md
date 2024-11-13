@@ -93,7 +93,7 @@ Route::get('/blog/{content}/hero', function ($content) {
 
 ```blade
 {{# resources/views/layout.antlers.html #}}
-<meta property="og:image" content="{{ route:blog.hero :content="id" }}">
+<meta property="og:image" content="{{ route:blog.hero }}">
 ```
 
 > [!IMPORTANT] 
