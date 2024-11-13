@@ -22,16 +22,14 @@ class Raster extends Tags
             return;
         }
 
-        return $raster->inject(...$this->params->all());
+        return $raster->injectParams(...$this->params->all());
     }
 
     public function url()
     {
         $name = Str::replace('/', '.', $this->params['src']);
+
         $data = $this->params->except('src')->all();
-        if (! isset($data['content'])) {
-            $data['content'] = $this->context->get('id')?->value();
-        }
 
         return raster($name, $data)->toUrl();
 

@@ -16,15 +16,27 @@ class AntlersHandler extends BaseHandler
      */
     public function renderHtml(): string
     {
-        $layout = 'layout.raster';
-        // $layout = config('raster.layout');
+        $layout = config('raster.layout') ?? 'raster';
+
+        $data = [
+            'raster' => $this->raster,
+        ];
+
+        $content = null;
+        if ($this->raster->isAutomaticMode()) {
+            $input = $this->raster->request()->all();
+            $data = array_merge($data, $input['data'] ?? []);
+            if (isset($data['content'])) {
+                $content = Data::find($data['content']);
+                unset($data['content']);
+            }
+        }
 
         $html = app(View::class)
             ->template($this->raster->name())
             ->layout($layout)
-            ->with([
-                'raster' => $this->raster,
-            ])
+            ->cascadeContent($content)
+            ->with($data)
             ->render();
 
         return $html;
@@ -47,14 +59,35 @@ class AntlersHandler extends BaseHandler
      * @param  array<mixed>  $args
      * @return array<mixed>
      */
+    public function injectParams($params): array
+    {
+        if (! $this->raster->isAutomaticMode()) {
+            return [];
+        }
+
+        $input = $this->raster->request()->all();
+        $params = collect($input)
+            ->merge($params)
+            ->only([
+                'width',
+                'basis',
+                'scale',
+                'type',
+                'preview',
+                'cache',
+            ]);
+
+        $params->each(fn ($value, $name) => $this->raster->{$name}($value));
+
+        return $this->raster->data();
+    }
+
+    /**
+     * @param  array<mixed>  $args
+     * @return array<mixed>
+     */
     public function resolveData(mixed $data, array $input): array
     {
-        if (isset($data['content'])) {
-            $content = Data::find($data['content']);
-            if ($content) {
-                $data = array_merge($data, $content->toAugmentedArray());
-            }
-        }
 
         return $data;
     }
