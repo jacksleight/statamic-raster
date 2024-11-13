@@ -29,9 +29,23 @@ class Raster extends Tags
     {
         $name = Str::replace('/', '.', $this->params['src']);
 
-        $data = $this->params->except('src')->all();
+        $params = $this->params->only([
+            'data',
+            'width',
+            'basis',
+            'scale',
+            'type',
+            'preview',
+        ])->all();
 
-        return raster($name, $data)->toUrl();
+        if (! isset($params['data']['content'])) {
+            $params['data']['content'] = $this->context->get('id')?->value();
+        }
+
+        $raster = raster($name);
+        collect($params)->each(fn ($value, $name) => $raster->{$name}($value));
+
+        return $raster->toUrl();
 
     }
 }

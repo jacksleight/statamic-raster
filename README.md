@@ -58,9 +58,11 @@ To make a view rasterizeable simply implement the main `raster` tag and then gen
 ```antlers
 {{# resources/views/blog/show.antlers.html #}}
 {{ push:head }}
-    <meta property="og:image" content="{{ raster:blog/hero :content="id" }}">
+    <meta property="og:image" content="{{ raster:blog/hero }}">
 {{ /push:head }}
 ```
+
+The current entry will be detected automatically and it's data passed to the rasterized view. You can override this by adding a `:data="['content' => 'entry_id']"` atribute to the URL tag.
 
 You can set [options](#options) with the main tag or through the URL with URL tag. The options passed in the URL take priority over options set in the main tag.
 
