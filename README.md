@@ -1,4 +1,8 @@
-# Statamic Raster
+<!-- statamic:hide -->
+
+# Raster
+
+<!-- /statamic:hide -->
 
 Easily rasterize views and partials to images by dropping in a tag and fetching a URL. Automatic scaling, caching, protection and preview mode. Zero configuration.
 
@@ -15,7 +19,7 @@ This package uses [Puppeteer](https://pptr.dev/) via [spatie/browsershot](https:
 If you need to customise the config you can publish it with:
 
 ```bash
-php artisan vendor:publish --tag="raster-config"
+php artisan vendor:publish --tag="statamic-raster-config"
 ```
 
 ## Usage
@@ -159,3 +163,7 @@ Raster::browsershot(fn ($browsershot) => $browsershot
     ->waitUntilNetworkIdle()
 );
 ```
+
+## Sponsoring 
+
+This addon is completely free to use. However fixing bugs, adding features and helping users takes time and effort. If you find this useful and would like to support its development any [contribution](https://github.com/sponsors/jacksleight) would be greatly appreciated. Thanks! 🙂
