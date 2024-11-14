@@ -33,6 +33,7 @@ class Raster extends Tags
             'content',
             'data',
             'width',
+            'height',
             'basis',
             'scale',
             'type',

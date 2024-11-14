@@ -37,6 +37,7 @@ class AntlersHandler extends BaseHandler
             ->merge($params)
             ->only([
                 'width',
+                'height',
                 'basis',
                 'scale',
                 'type',
