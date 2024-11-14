@@ -19,7 +19,7 @@ This package uses [Puppeteer](https://pptr.dev/) via [spatie/browsershot](https:
 If you need to customise the config you can publish it with:
 
 ```bash
-php artisan vendor:publish --tag="raster-config"
+php artisan vendor:publish --tag="statamic-raster-config"
 ```
 
 ## Usage
