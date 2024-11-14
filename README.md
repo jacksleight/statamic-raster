@@ -1,6 +1,6 @@
 # Statamic Raster
 
-Easily rasterize views and partials to images by dropping in a tag and fetching a URL. Automatic scaling, caching and protection. Zero configuration.
+Easily rasterize views and partials to images by dropping in a tag and fetching a URL. Automatic scaling, caching, protection and preview mode. Zero configuration.
 
 ## Installation
 
