@@ -2,7 +2,7 @@
 
 namespace JackSleight\StatamicRaster\Tags;
 
-use JackSleight\LaravelRaster\Raster as RasterObject;
+use JackSleight\StatamicRaster\Raster as RasterCore;
 use Statamic\Support\Str;
 use Statamic\Tags\Tags;
 
@@ -18,11 +18,11 @@ class Raster extends Tags
     public function index()
     {
         $raster = $this->context->get('raster');
-        if (! $raster instanceof RasterObject) {
+        if (! $raster instanceof RasterCore) {
             return;
         }
 
-        return $raster->injectParams(...$this->params->all());
+        return $raster->handler()->injectParams($this->params->all());
     }
 
     public function url()
@@ -30,6 +30,7 @@ class Raster extends Tags
         $name = Str::replace('/', '.', $this->params['src']);
 
         $params = $this->params->only([
+            'content',
             'data',
             'width',
             'basis',
@@ -38,11 +39,11 @@ class Raster extends Tags
             'preview',
         ])->all();
 
-        if (! isset($params['data']['content'])) {
-            $params['data']['content'] = $this->context->get('id')?->value();
+        if (! isset($params['content'])) {
+            $params['content'] = $this->context->get('page');
         }
 
-        $raster = raster($name);
+        $raster = new RasterCore($name);
         collect($params)->each(fn ($value, $name) => $raster->{$name}($value));
 
         return $raster->toUrl();

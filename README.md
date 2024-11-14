@@ -1,6 +1,6 @@
 # Statamic Raster
 
-Statamic Raster makes it super simple to rasterize antlers views to images.
+Rasterize views to images by simply dropping in a tag and fetching a URL. Automatic scaling, caching and protection. Zero configuration.
 
 ## Installation
 
@@ -62,7 +62,7 @@ To make a view rasterizeable simply implement the main `raster` tag and then gen
 {{ /push:head }}
 ```
 
-The current entry will be detected automatically and it's data passed to the rasterized view. You can override this by adding a `:data="['content' => 'entry_id']"` atribute to the URL tag.
+The current content will be detected automatically and it's data passed to the rasterized view. You can override this by adding a `:content="entry_id"` atribute to the URL tag.
 
 You can set [options](#options) with the main tag or through the URL with URL tag. The options passed in the URL take priority over options set in the main tag.
 
@@ -73,7 +73,7 @@ When the view is rendered during normal non-raster requests the tag does nothing
 
 ### Advanced Mode (Manual Routing)
 
-If you would like more control over the routing and how the requests are handled you can define your own routes that return raster responses and then generate a URL to your image using the usual `route()` helper.
+If you would like more control over the routing and how the requests are handled you can define your own routes that return raster responses and then generate a URL to your image using the usual `route` tag.
 
 ```antlers
 {{# resources/views/blog/hero.antlers.html #}}
@@ -86,14 +86,17 @@ If you would like more control over the routing and how the requests are handled
 
 ```php
 /* routes/web.php */
-Route::get('/blog/{content}/hero', function ($content) {
-    return raster('blog.hero', ['content' => $content])->width(1000);
+use JackSleight\StatamicRaster\Raster;
+use Statamic\Facades\Entry;
+
+Route::get('/blog/{entry}/hero', function (Request $request, $entry) {
+    return (new Raster('blog.hero', Entry::find($entry)))->width(1000);
 })->name('blog.hero');
 ```
 
 ```blade
 {{# resources/views/layout.antlers.html #}}
-<meta property="og:image" content="{{ route:blog.hero }}">
+<meta property="og:image" content="{{ route:blog.hero :entry="id" }}">
 ```
 
 > [!IMPORTANT] 
@@ -103,7 +106,7 @@ Route::get('/blog/{content}/hero', function ($content) {
 
 If you would like to make changes to the view based on whether or not it's being rasterized you can check for the `$raster` variable:
 
-```blade
+```antlers
 <div {{ [
     'rounded-none' => $raster,
 ] | classes }}>
@@ -156,7 +159,7 @@ Only views that implement the `raster` tag can be rasterized in simple mode, an 
 If you need to customise the Browsershot instance you can pass a closure to `Raster::browsershot()` in a service provider:
 
 ```php
-use JackSleight\LaravelRaster\Raster;
+use JackSleight\StatamicRaster\Raster;
 
 Raster::browsershot(fn ($browsershot) => $browsershot
     ->setOption('args', ['--disable-web-security'])

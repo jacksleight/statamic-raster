@@ -13,7 +13,18 @@ class ServiceProvider extends AddonServiceProvider
 
     public function bootAddon()
     {
-        Raster::handler('antlers.html', AntlersHandler::class);
-        Raster::handler('antlers.php', AntlersHandler::class);
+        $this->publishes([
+            __DIR__.'/../config/statamic/raster.php' => config_path('statamic/raster.php'),
+        ], 'statamic-raster-config');
+
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/statamic/raster.php', 'statamic.raster'
+        );
+
+        config()->set('raster.sign_urls', config('statamic.raster.sign_urls'));
+        config()->set('raster.cache_store', config('statamic.raster.cache_store'));
+
+        Raster::extension('antlers.html', AntlersHandler::class);
+        Raster::extension('antlers.php', AntlersHandler::class);
     }
 }
