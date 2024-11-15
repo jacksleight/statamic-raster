@@ -45,7 +45,7 @@ The views will be rendered inside a layout view where you can load any required 
 
 ### Automatic Mode
 
-To make a view rasteriseable simply implement the main `raster` tag and then generate a URL to your image using the `raster:url` tag.
+To make a view rasterizeable simply implement the main `raster` tag and then generate a URL to your image using the `raster:url` tag.
 
 ```antlers
 {{# resources/views/blog/hero.antlers.html #}}
