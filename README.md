@@ -67,7 +67,7 @@ To make a view rasterizeable simply implement the main `raster` tag and then gen
 {{ /push:head }}
 ```
 
-The current content will be detected automatically and its data passed to the view. You can override this by adding a `:content="entry_id"` atribute to the URL tag.
+The current content will be detected automatically and its data passed to the view. You can override this by adding a `:content="entry_id"` attribute to the URL tag.
 
 You can set [options](#options) with the main tag or through the URL with URL tag. The options passed in the URL take priority over options set in the main tag.
 
@@ -129,7 +129,7 @@ The following options can be set with the main tag or URL tag:
 * **basis (int)**  
   [Viewport basis](#viewport-basis) of the generated image. 
 * **scale (int, 1)**  
-  Scale factor of the generated image (1, 2 or 3).
+  Scale factor of the generated image.
 * **type (string, png)**  
   Type of the generated image (`png`, `jpeg` or `pdf`).
 * **preview (bool, false)**  
