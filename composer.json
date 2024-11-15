@@ -19,7 +19,7 @@
     "require": {
         "php": "^8.1|^8.2|^8.3",
         "statamic/cms": "^5.0",
-        "jacksleight/laravel-raster": "dev-main"
+        "jacksleight/laravel-raster": "^0.1.0"
     },
     "config": {
         "allow-plugins": {
