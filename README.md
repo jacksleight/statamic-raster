@@ -132,6 +132,10 @@ The following options can be set with the main tag or URL tag:
   Scale factor of the generated image.
 * **type (string, png)**  
   Type of the generated image (`png`, `jpeg` or `pdf`).
+* **content (string)**  
+  ID of the entry data to pass to the view.
+* **data (array)**  
+  Array of data to pass to the view.
 * **preview (bool, false)**  
   Enable [preview mode](#preview-mode).
 * **cache (bool|int, false)**  
