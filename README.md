@@ -26,9 +26,10 @@ php artisan vendor:publish --tag="statamic-raster-config"
 
 ### Layout Setup
 
-The views will be rendered inside a layout view where you can load any required CSS and other assets. By default this is a called `raster`, but you can change that in the config file.
+The views will be rendered inside a layout view where you can load any required CSS and other assets. By default this is `raster`, but you can change it in the config file.
 
 ```antlers
+{{# resources/views/raster.antlers.html #}}
 <!DOCTYPE html>
 <html>
     <head>
