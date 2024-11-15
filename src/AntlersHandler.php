@@ -33,8 +33,7 @@ class AntlersHandler extends BaseHandler
         }
 
         $input = $this->raster->request()->all();
-        $params = collect($input)
-            ->merge($params)
+        $merged = collect([...$params, ...$input])
             ->only([
                 'width',
                 'height',
@@ -45,7 +44,7 @@ class AntlersHandler extends BaseHandler
                 'cache',
             ]);
 
-        $params->each(fn ($value, $name) => $this->raster->{$name}($value));
+        $merged->each(fn ($value, $name) => $this->raster->{$name}($value));
 
         return $this->raster->data();
     }
