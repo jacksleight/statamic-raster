@@ -4,7 +4,7 @@
 
 <!-- /statamic:hide -->
 
-Easily rasterize views and partials to images by dropping in a tag and fetching a URL. Automatic scaling, caching, protection and preview mode. Zero configuration (unless you need it).
+Rasterise views and partials to images by simply adding a tag and fetching the URL. Automatic scaling, caching, protection and preview mode. Zero configuration (unless you need it).
 
 ## Installation
 
@@ -26,7 +26,7 @@ php artisan vendor:publish --tag="statamic-raster-config"
 
 ### Layout Setup
 
-The views will be rendered inside a layout view where you can load any required CSS and other assets. By default it looks for a template called `raster`, but you can configure it in the config file.
+The views will be rendered inside a layout view where you can load any required CSS and other assets. By default this is a called `raster`, but you can change that in the config file.
 
 ```antlers
 <!DOCTYPE html>
@@ -43,9 +43,9 @@ The views will be rendered inside a layout view where you can load any required 
 </html>
 ```
 
-### Simple Mode (Automatic Routing)
+### Automatic Mode
 
-To make a view rasterizeable simply implement the main `raster` tag and then generate a URL to your image using the `raster:url` tag.
+To make a view rasteriseable simply implement the main `raster` tag and then generate a URL to your image using the `raster:url` tag.
 
 ```antlers
 {{# resources/views/blog/hero.antlers.html #}}
@@ -73,9 +73,9 @@ You can set [options](#options) with the main tag or through the URL with URL ta
 When the view is rendered during normal non-raster requests the tag does nothing.
 
 > [!IMPORTANT] 
-> Views rasterised using simple mode must implement the raster tag.
+> Views rasterised using automatic mode must implement the raster tag.
 
-### Advanced Mode (Manual Routing)
+### Manual Mode
 
 If you would like more control over the routing and how the requests are handled you can define your own routes that return raster responses and then generate a URL to your image using the usual `route` tag.
 
@@ -104,11 +104,11 @@ Route::get('/blog/{entry}/hero', function (Request $request, $entry) {
 ```
 
 > [!IMPORTANT] 
-> Views rasterised using advanced mode must not implement the raster tag.
+> Views rasterised using manual mode must not implement the raster tag.
 
-## Customising Rasterized Views
+## Customising Rasterised Views
 
-If you would like to make changes to the view based on whether or not it's being rasterized you can check for the `$raster` variable:
+If you would like to make changes to the view based on whether or not it's being rasterised you can check for the `$raster` variable:
 
 ```antlers
 <div {{ [
@@ -149,7 +149,7 @@ In preview mode the HTML will be returned from the response but with all the app
 
 ## Security & URL Signing
 
-Only views that implement the `raster` tag can be rasterized in simple mode, an error will be thrown before execution if they don't. It's also recommended to enable URL signing on production to ensure they can't be tampered with. You can do this by setting the `RASTER_SIGN_URLS` .env var to `true`.
+Only views that implement the `raster` tag can be rasterised in automatic mode, an error will be thrown before execution if they don't. It's also recommended to enable URL signing on production to ensure they can't be tampered with. You can do this by setting the `RASTER_SIGN_URLS` .env var to `true`.
 
 ## Customising Browsershot
 
