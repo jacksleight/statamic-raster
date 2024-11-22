@@ -39,7 +39,7 @@ class Raster extends Tags
             $params['content'] = $this->context->get('page');
         }
 
-        $raster = new RasterCore($name);
+        $raster = RasterCore::make($name);
         collect($params)->each(fn ($value, $name) => $raster->{$name}($value));
 
         return $raster->toUrl();

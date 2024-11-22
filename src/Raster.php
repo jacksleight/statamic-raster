@@ -2,7 +2,6 @@
 
 namespace JackSleight\StatamicRaster;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use JackSleight\LaravelRaster\Raster as LaravelRaster;
 use JackSleight\StatamicRaster\Http\Responses\DataResponse as DataResponse;
@@ -15,13 +14,6 @@ class Raster extends LaravelRaster
     protected ?object $content;
 
     protected $route = 'statamic-raster.render';
-
-    public function __construct(string $name, ?object $content = null, array $data = [], ?Request $request = null)
-    {
-        parent::__construct($name, $data, $request);
-
-        $this->content = $content;
-    }
 
     public function content(?object $content = null): object
     {

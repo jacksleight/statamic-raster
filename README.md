@@ -95,7 +95,9 @@ use JackSleight\StatamicRaster\Raster;
 use Statamic\Facades\Entry;
 
 Route::get('/blog/{entry}/hero', function (Request $request, $entry) {
-    return (new Raster('blog.hero', Entry::find($entry)))->width(1000);
+    return Raster::make('blog.hero')
+        ->content(Entry::find($entry))
+        ->width(1000);
 })->name('blog.hero');
 ```
 

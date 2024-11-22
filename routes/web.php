@@ -5,11 +5,11 @@ use JackSleight\StatamicRaster\Raster;
 
 Route::group(['as' => 'statamic-raster.'], function () {
     $route = config('statamic.raster.route');
-    Route::get($route.'/{name}', function (Request $request, $name) {
+    Route::get($route.'/{name}', function (Request $request) {
         if (config('raster.sign_urls') && ! $request->hasValidSignature()) {
             abort(401);
         }
 
-        return new Raster($name, request: $request);
+        return Raster::makeFromRequest($request);
     })->name('render');
 });
