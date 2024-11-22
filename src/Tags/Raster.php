@@ -22,23 +22,18 @@ class Raster extends Tags
             return;
         }
 
-        return $raster->handler()->injectParams($this->params->all());
+        $params = $this->params
+            ->mapWithKeys(fn ($value, $name) => [Str::camel($name) => $value])
+            ->all();
+
+        return $raster->handler()->injectParams($params);
     }
 
     public function url()
     {
         $name = Str::replace('/', '.', $this->params['src']);
 
-        $params = $this->params->only([
-            'content',
-            'data',
-            'width',
-            'height',
-            'basis',
-            'scale',
-            'type',
-            'preview',
-        ])->all();
+        $params = $this->params;
 
         if (! isset($params['content'])) {
             $params['content'] = $this->context->get('page');
@@ -48,6 +43,5 @@ class Raster extends Tags
         collect($params)->each(fn ($value, $name) => $raster->{$name}($value));
 
         return $raster->toUrl();
-
     }
 }
