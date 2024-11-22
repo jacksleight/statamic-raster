@@ -145,16 +145,16 @@ With PDF output a height is required, it will only contain one page, and dimensi
 
 ### Caching
 
+The following options can be set with the main tag. Cache options cannot be passed as URL parameters.
+
 * **cache (bool, false)**  
   Enable caching of image generation.
 * **cache_for (int)**  
   Cache time to live in seconds.
 * **cache_key (string|array)**  
-  Cache key. If an array is provided that will hashed to generate a key.
+  Cache key. If an array is provided it will be hashed to generate a key.
 
 The `cache` option can also be used as a shortcut. Pass an integer to enable caching and set the for value, pass a string or array to enable caching and set the key value.
-
-Cache options cannot be passed as URL parameters.
 
 ## Viewport Basis
 
