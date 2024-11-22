@@ -143,7 +143,7 @@ The following options can be set with the main tag or URL tag:
 
 With PDF output a height is required, it will only contain one page, and dimensions are still pixels not mm/inches. If you're looking to generate actual documents from views I highly recommend checking out [spatie/laravel-pdf](https://github.com/spatie/laravel-pdf).
 
-# Caching
+### Caching
 
 * **cache (bool, false)**  
   Enable caching of image generation.
