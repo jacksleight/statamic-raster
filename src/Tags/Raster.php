@@ -33,7 +33,7 @@ class Raster extends Tags
     {
         $name = Str::replace('/', '.', $this->params['src']);
 
-        $params = $this->params;
+        $params = $this->params->except('src');
 
         if (! isset($params['content'])) {
             $params['content'] = $this->context->get('page');
