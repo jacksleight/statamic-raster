@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 (2024-11-23)
+
+- [fix] Composer dependency
+
 ## 0.2.0 (2024-11-22)
 
 - [new] Global cache toggle
