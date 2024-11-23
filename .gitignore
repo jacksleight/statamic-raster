@@ -1,5 +1,6 @@
+node_modules
 vendor
 mix-manifest.json
-/composer.lock
-/.idea
+.php-cs-fixer.cache
+vite.hot
 .DS_Store
