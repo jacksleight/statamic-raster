@@ -145,7 +145,7 @@ With PDF output a height is required, it will only contain one page, and dimensi
 
 ### Caching
 
-The following options can be set with the main tag. Cache options cannot be passed as URL parameters.
+The following caching options can be set with the main tag or by chaining methods on to the object. Cache options cannot be passed as URL parameters. You can globally disable caching by setting the `RASTER_CACHE` env var to `false`. By default the `file` cache store is used to cache rendered images, you can change this by setting the `RASTER_CACHE_STORE` env var.
 
 * **cache (bool, false)**  
   Enable caching of image generation.
@@ -154,7 +154,7 @@ The following options can be set with the main tag. Cache options cannot be pass
 * **cache_key (string|array)**  
   Cache key. If an array is provided it will be hashed to generate a key.
 
-The `cache` option can also be used as a shortcut. Pass an integer to enable caching and set the for value, pass a string or array to enable caching and set the key value.
+The `cache` option can also be used as a shortcut. Pass an integer to enable caching and set the `cache_for` value, pass a string or array to enable caching and set the `cache_key` value.
 
 ## Viewport Basis
 
