@@ -14,8 +14,6 @@ class Raster extends LaravelRaster
 {
     protected ?object $content;
 
-    protected ?object $token;
-
     protected $route = 'statamic-raster.render';
 
     public function content(?object $content = null): object
