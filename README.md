@@ -171,7 +171,7 @@ In preview mode the HTML will be returned from the response but with all the app
 To add a rasterized view to Statamic's live preview add an additional preview target to the collection config as below. If you need to adjust the preview you can add additional options as query parameters.
 
 ```
-/!/raster/your.view.name?content={id}&preview=1
+/!/raster/your.view.name?content={id}
 ```
 
 ## Security & URL Signing

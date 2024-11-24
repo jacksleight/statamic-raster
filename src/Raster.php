@@ -60,13 +60,13 @@ class Raster extends LaravelRaster
         }
 
         $token = $this->request->statamicToken();
-
         if ($token) {
             $content = LivePreview::item($token);
             if (! $content) {
                 throw new NotFoundHttpException;
             }
             $this->content = $content;
+            $this->preview = true;
 
             return;
         }
