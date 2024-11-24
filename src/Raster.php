@@ -2,6 +2,7 @@
 
 namespace JackSleight\StatamicRaster;
 
+use Facades\Statamic\CP\LivePreview;
 use Illuminate\Http\Response;
 use JackSleight\LaravelRaster\Raster as LaravelRaster;
 use JackSleight\StatamicRaster\Http\Responses\DataResponse as DataResponse;
@@ -12,6 +13,8 @@ use Statamic\View\View;
 class Raster extends LaravelRaster
 {
     protected ?object $content;
+
+    protected ?object $token;
 
     protected $route = 'statamic-raster.render';
 
@@ -33,7 +36,7 @@ class Raster extends LaravelRaster
         $html = (new View)
             ->template($this->name())
             ->layout($layout)
-            ->cascadeContent($this->content)
+            ->cascadeContent(isset($this->content) ? $this->content : null)
             ->with([
                 ...$this->data,
                 'raster' => $this,
@@ -54,7 +57,19 @@ class Raster extends LaravelRaster
 
     protected function handleRequest(): void
     {
-        if (! $this->request->content) {
+        if (! $this->request->content && ! $this->request->isLivePreview()) {
+            return;
+        }
+
+        $token = $this->request->statamicToken();
+
+        if ($token) {
+            $content = LivePreview::item($token);
+            if (! $content) {
+                throw new NotFoundHttpException;
+            }
+            $this->content = $content;
+
             return;
         }
 
