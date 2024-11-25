@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 (2024-11-25)
+
+- [new] Disk based caching
+
 ## 0.2.1 (2024-11-23)
 
 - [fix] Composer dependency
