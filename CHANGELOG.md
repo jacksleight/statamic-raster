@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 (2024-11-25)
+
+- [fix] Disk based caching
+
 ## 0.3.0 (2024-11-25)
 
 - [new] Disk based caching
