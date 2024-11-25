@@ -23,7 +23,6 @@ class ServiceProvider extends AddonServiceProvider
 
         config()->set('raster.sign_urls', config('statamic.raster.sign_urls'));
         config()->set('raster.cache', config('statamic.raster.cache'));
-        config()->set('raster.cache_store', config('statamic.raster.cache_store'));
 
         Raster::extension('antlers.html', AntlersHandler::class);
         Raster::extension('antlers.php', AntlersHandler::class);
