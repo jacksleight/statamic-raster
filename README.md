@@ -73,8 +73,7 @@ You can set [options](#options) with the main tag or through the URL with URL ta
 
 When the view is rendered during normal non-raster requests the tag does nothing.
 
-> [!IMPORTANT] 
-> Views rasterised using automatic mode must implement the raster tag.
+> 🚨 **Important:** Views rasterised using automatic mode must implement the raster tag.
 
 ### Manual Mode
 
@@ -106,8 +105,7 @@ Route::get('/blog/{entry}/hero', function (Request $request, $entry) {
 <meta property="og:image" content="{{ route:blog.hero :entry="id" }}">
 ```
 
-> [!IMPORTANT] 
-> Views rasterised using manual mode must not implement the raster tag.
+> 🚨 **Important:** Views rasterised using automatic mode must not  implement the raster tag.
 
 ## Customising Rasterised Views
 
