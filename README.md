@@ -134,6 +134,8 @@ The following options can be set with the main tag or URL tag:
   Scale factor of the generated image.
 * **type (string, png)**  
   Type of the generated image (`png`, `jpeg` or `pdf`).
+* **file (string)**  
+  File name of the response, excluding extension.
 * **content (string)**  
   ID of the entry data to pass to the view.
 * **data (array)**  
