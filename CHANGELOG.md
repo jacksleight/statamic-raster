@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1 (2025-09-16)
+
+- Statamic 6 support
+
 ## 0.4.0 (2024-12-06)
 
 - [new] File name option
