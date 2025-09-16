@@ -34,7 +34,11 @@ class AntlersHandler extends BaseHandler
 
         $input = $this->raster->request()->all();
         $merged = collect([...$params, ...$input])
-            ->except('content');
+            ->except([
+                'content',
+                'token',
+                'live-preview',
+            ]);
 
         $merged->each(fn ($value, $name) => $this->raster->{$name}($value));
 

@@ -164,6 +164,14 @@ When the basis option is set the image will be generated as if the viewport was 
 
 In preview mode the HTML will be returned from the response but with all the appropriate scaling applied. This gives you a 1:1 preview without the latency that comes from generating the actual image.
 
+## Live Preview
+
+To add a rasterised view to Statamic's live preview add an additional preview target to the collection config with the following URL. If you need to adjust the preview you can add additional options as query parameters.
+
+```
+/!/raster/your.view.name
+```
+
 ## Security & URL Signing
 
 Only views that implement the `raster` tag can be rasterised in automatic mode, an error will be thrown before execution if they don't. It's also recommended to enable URL signing on production to ensure they can't be tampered with. You can do this by setting the `RASTER_SIGN_URLS` .env var to `true`.
