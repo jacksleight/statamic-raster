@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 (2025-10-03)
+
+- [new] Live preview support
+
 ## 0.4.1 (2025-09-16)
 
 - Statamic 6 support
