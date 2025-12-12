@@ -105,7 +105,7 @@ Route::get('/blog/{entry}/hero', function (Request $request, $entry) {
 <meta property="og:image" content="{{ route:blog.hero :entry="id" }}">
 ```
 
-> 🚨 **Important:** Views rasterised using automatic mode must not  implement the raster tag.
+> 🚨 **Important:** Views rasterised using manual mode must not  implement the raster tag.
 
 ## Customising Rasterised Views
 
