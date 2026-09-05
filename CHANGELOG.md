@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1 (Unreleased)
+
+- [fix] Error when rendering a view without content
+
 ## 0.5.0 (2025-10-03)
 
 - [new] Live preview support

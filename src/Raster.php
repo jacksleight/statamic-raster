@@ -12,7 +12,7 @@ use Statamic\View\View;
 
 class Raster extends LaravelRaster
 {
-    protected ?object $content;
+    protected ?object $content = null;
 
     protected $route = 'statamic-raster.render';
 
