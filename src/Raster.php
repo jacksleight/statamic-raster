@@ -16,9 +16,13 @@ class Raster extends LaravelRaster
 
     protected $route = 'statamic-raster.render';
 
-    public function content(?object $content = null): object
+    public function content(object|string|null $content = null): object|null
     {
         if (func_num_args() > 0) {
+            if (is_string($content) && ! $content = Data::find($content)) {
+                throw new NotFoundHttpException;
+            }
+
             $this->content = $content;
 
             return $this;
