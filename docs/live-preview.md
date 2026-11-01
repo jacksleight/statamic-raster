@@ -19,7 +19,7 @@ preview_targets:
 
 The entry being edited is passed to the view automatically, unsaved changes included. Live preview always uses [preview mode](options#preview-mode), so what you see is the scaled HTML rather than a generated image, which keeps it responsive.
 
-If you need to adjust the preview you can add any of the [options](options) as query parameters:
+If you need to adjust the preview you can add any of the [options](options) except `cache_id` as query parameters:
 
 ```yaml
 url: '/!/raster/blog.hero?width=600'
