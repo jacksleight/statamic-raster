@@ -1,5 +1,6 @@
 {
     "name": "jacksleight/statamic-raster",
+    "description": "Rasterise views and partials to images by simply adding a tag and fetching the URL.",
     "license": "MIT",
     "autoload": {
         "psr-4": {
