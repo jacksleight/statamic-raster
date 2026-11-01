@@ -2,7 +2,6 @@
 
 namespace JackSleight\StatamicRaster;
 
-use JackSleight\LaravelRaster\Raster;
 use Statamic\Providers\AddonServiceProvider;
 
 class ServiceProvider extends AddonServiceProvider
@@ -23,8 +22,5 @@ class ServiceProvider extends AddonServiceProvider
 
         config()->set('raster.sign_urls', config('statamic.raster.sign_urls'));
         config()->set('raster.cache', config('statamic.raster.cache'));
-
-        Raster::extension('antlers.html', AntlersHandler::class);
-        Raster::extension('antlers.php', AntlersHandler::class);
     }
 }

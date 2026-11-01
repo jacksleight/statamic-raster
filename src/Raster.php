@@ -2,6 +2,7 @@
 
 namespace JackSleight\StatamicRaster;
 
+use Exception;
 use Facades\Statamic\CP\LivePreview;
 use Illuminate\Http\Response;
 use JackSleight\LaravelRaster\Raster as LaravelRaster;
@@ -14,7 +15,20 @@ class Raster extends LaravelRaster
 {
     protected ?object $content = null;
 
+    protected static $extensions = [
+        'antlers.html' => AntlersHandler::class,
+        'antlers.php' => AntlersHandler::class,
+    ];
+
     protected $route = 'statamic-raster.render';
+
+    protected function unsupportedView(string $extension): Exception
+    {
+        return match ($extension) {
+            'blade.php' => new Exception("Cannot rasterise [{$this->name}], Blade views are rendered by Laravel Raster, use its route and raster() helper instead."),
+            default => parent::unsupportedView($extension),
+        };
+    }
 
     public function content(object|string|null $content = null): object|null
     {

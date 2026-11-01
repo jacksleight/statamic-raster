@@ -55,7 +55,7 @@
 {{ partial:panel heading="Blade" }}
     <table class="w-full text-left">
         <tbody>
-            <tr class="align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/blade-card }}" class="underline decoration-zinc-950/20 underline-offset-3">URL tag</a></td><td class="py-2 pr-4 font-mono text-xs">{{ raster:raster/blade-card }}</td><td class="py-2 text-sm text-zinc-600">A Blade view through the addon's route, which Statamic renders without a layout. Unsupported, kept to show why.</td></tr>
+            <tr class="align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="/!/raster/raster.blade-card" class="underline decoration-zinc-950/20 underline-offset-3">Addon route</a></td><td class="py-2 pr-4 font-mono text-xs">/!/raster/raster.blade-card</td><td class="py-2 text-sm text-zinc-600">A Blade view through the addon's route. Throws, pointing at laravel-raster. A plain link, because the URL tag would throw and take this page down.</td></tr>
             <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ lab:helper view="raster.blade-card" }}" class="underline decoration-zinc-950/20 underline-offset-3">raster() helper</a></td><td class="py-2 pr-4 font-mono text-xs">{{ lab:helper view="raster.blade-card" }}</td><td class="py-2 text-sm text-zinc-600">The documented way: laravel-raster's helper and route, inside the lab's Blade layout.</td></tr>
         </tbody>
     </table>
