@@ -1,8 +1,20 @@
 # Changelog
 
-## 0.5.1 (Unreleased)
+## 1.0.0 (Unreleased)
 
+- [new] Brand new [documentation](https://jacksleight.com/code/statamic-raster)
+- [new] Transparent option
+- [new] Entry IDs can be passed as the content option
+- [break] Only option parameters are read from the URL, anything else is ignored and `cache_id` can no longer be set there
+- [break] Cache path defaults to `raster` when a cache disk is set, published configs need the same default
 - [fix] Error when rendering a view without content
+- [fix] Signed URLs and unknown query parameters causing errors
+- [fix] Boolean URL options treating `false` as true
+- [fix] URL data not reaching Antlers views
+- [fix] Unresolvable content IDs breaking the page in the URL tag
+- [fix] Snake case parameters causing errors in the URL tag
+- PHP 8.2+ is now required
+- Laravel Raster 1.0 is now required
 
 ## 0.5.0 (2025-10-03)
 
