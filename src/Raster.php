@@ -59,6 +59,8 @@ class Raster extends LaravelRaster
 
     protected function handleRequest(): void
     {
+        $this->data($this->requestParams()['data'] ?? []);
+
         if (! $this->request->content && ! $this->request->isLivePreview()) {
             return;
         }

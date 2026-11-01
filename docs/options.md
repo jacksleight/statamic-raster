@@ -22,9 +22,9 @@ The following options can be set with the main tag, the URL tag, or by chaining 
 * **file (string)**  
   File name of the response, excluding extension. Defaults to the view name.
 * **content (object|string)**  
-  The entry, or its ID, to pass to the view, see [content](automatic-mode#content).
+  The entry, or its ID, to pass to the view, see [content](automatic-mode#content). URL tag and PHP only.
 * **data (array)**  
-  Array of data to pass to the view.
+  Array of data to pass to the view. URL tag and PHP only.
 * **preview (bool, false)**  
   Enable [preview mode](#preview-mode).
 * **cache (bool, false)**  

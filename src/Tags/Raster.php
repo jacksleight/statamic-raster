@@ -26,7 +26,7 @@ class Raster extends Tags
             ->mapWithKeys(fn ($value, $name) => [Str::camel($name) => $value])
             ->all();
 
-        return $raster->handler()->injectParams($params);
+        $raster->handler()->injectParams($params);
     }
 
     public function url()
