@@ -8,7 +8,7 @@
     "extra": {
         "statamic": {
             "name": "Statamic Raster",
-            "description": "Statamic Raster addon"
+            "description": "Rasterise views and partials to images by simply adding a tag and fetching the URL."
         },
         "laravel": {
             "providers": [
@@ -17,9 +17,9 @@
         }
     },
     "require": {
-        "php": "^8.1|^8.2|^8.3",
+        "php": "^8.2",
         "statamic/cms": "^5.0|^6.0",
-        "jacksleight/laravel-raster": "^0.4.0"
+        "jacksleight/laravel-raster": "^1.0"
     },
     "config": {
         "allow-plugins": {
