@@ -3,6 +3,7 @@
 namespace JackSleight\StatamicRaster\Tags;
 
 use JackSleight\StatamicRaster\Raster as RasterCore;
+use Statamic\Exceptions\NotFoundHttpException;
 use Statamic\Support\Str;
 use Statamic\Tags\Tags;
 
@@ -40,7 +41,11 @@ class Raster extends Tags
         }
 
         $raster = RasterCore::make($name);
-        collect($params)->each(fn ($value, $name) => $raster->{$name}($value));
+        try {
+            collect($params)->each(fn ($value, $name) => $raster->{$name}($value));
+        } catch (NotFoundHttpException) {
+            return;
+        }
 
         return $raster->toUrl();
     }
