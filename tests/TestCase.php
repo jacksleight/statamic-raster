@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use JackSleight\LaravelRaster\ServiceProvider as LaravelRasterServiceProvider;
 use JackSleight\StatamicRaster\ServiceProvider;
 use Statamic\Testing\AddonTestCase;
 use Statamic\Testing\Concerns\PreventsSavingStacheItemsToDisk;
@@ -18,6 +19,14 @@ class TestCase extends AddonTestCase
         parent::setUp();
 
         Probe::register();
+    }
+
+    protected function getPackageProviders($app)
+    {
+        return [
+            LaravelRasterServiceProvider::class,
+            ...parent::getPackageProviders($app),
+        ];
     }
 
     protected function getEnvironmentSetUp($app)
