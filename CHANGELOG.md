@@ -7,6 +7,7 @@
 - [new] Entry IDs can be passed as the content option
 - [break] Only option parameters are read from the URL, anything else is ignored and `cache_id` can no longer be set there
 - [break] Cache path defaults to `raster` when a cache disk is set, published configs need the same default
+- [break] Blade views are no longer rendered by the addon's route, tags or Raster class, use Laravel Raster's
 - [fix] Error when rendering a view without content
 - [fix] Signed URLs and unknown query parameters causing errors
 - [fix] Boolean URL options treating `false` as true
