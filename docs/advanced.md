@@ -28,4 +28,6 @@ This is where you'd point Browsershot at a specific Node or Chromium binary, adj
 
 ## Blade Views
 
-Blade views should work alongside Antlers ones, as the addon registers its handlers on top of Laravel Raster's. Use the `@raster` directive instead of the tag, and the `raster()` helper instead of the URL tag, as described in the [Laravel Raster](https://jacksleight.com/code/laravel-raster) docs.
+The addon's route and URL tag are for Antlers views, since Statamic doesn't wrap Blade views in a layout. For Blade views use [Laravel Raster](https://jacksleight.com/code/laravel-raster) directly, which comes installed with the addon. Add the `@raster` directive to the view and generate the URL with the `raster()` helper, as described in its docs. The view will be rendered inside its own Blade layout, see [layout setup](https://jacksleight.com/code/laravel-raster/installation#layout-setup).
+
+Blade views don't get the entry cascade or content protection, so pass anything they need as data. Signing and caching follow this addon's config.
