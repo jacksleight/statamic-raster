@@ -5,6 +5,11 @@
             "JackSleight\\StatamicRaster\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
     "extra": {
         "statamic": {
             "name": "Statamic Raster",
@@ -23,7 +28,12 @@
     },
     "config": {
         "allow-plugins": {
-            "pixelfear/composer-dist-plugin": true
+            "pixelfear/composer-dist-plugin": true,
+            "pestphp/pest-plugin": true
         }
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.0",
+        "orchestra/testbench": "^10.0"
     }
 }

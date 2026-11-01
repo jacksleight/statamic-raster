@@ -3,3 +3,5 @@ mix-manifest.json
 /composer.lock
 /.idea
 .DS_Store
+.phpunit.cache
+.phpunit.result.cache
