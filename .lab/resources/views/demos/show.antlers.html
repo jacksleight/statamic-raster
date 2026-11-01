@@ -1,0 +1,14 @@
+{{ push:head }}
+    <meta property="og:image"
+          content="{{ raster:places/share }}">
+{{ /push:head }}
+
+<article class="demo">
+    <p class="demo-kicker">{{ kicker:label }}</p>
+    <h1 class="demo-title">{{ title }}</h1>
+    <p class="demo-summary">{{ summary }}</p>
+    <figure class="demo-card">
+        <img src="{{ raster:places/share }}" alt="" width="1200" height="630">
+        <figcaption>og:image</figcaption>
+    </figure>
+</article>

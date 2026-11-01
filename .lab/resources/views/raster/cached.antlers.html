@@ -1,0 +1,10 @@
+{{ %raster
+    width="800"
+    cache="true"
+    :cache_id="id"
+}}
+<div class="w-[800px] bg-amber-300 p-8 text-zinc-950">
+    <p class="font-mono text-xs tracking-widest uppercase">Cached view</p>
+    <h1 class="mt-2 font-serif text-3xl font-semibold">{{ title }}</h1>
+    <p class="mt-3 font-mono">Rendered at {{ now | format('H:i:s.v') }}</p>
+</div>

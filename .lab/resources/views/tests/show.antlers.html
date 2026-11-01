@@ -1,0 +1,62 @@
+{{ push:head }}
+    <meta property="og:image" content="{{ raster:raster/hero }}">
+{{ /push:head }}
+
+{{ partial:heading }}
+
+{{ partial:panel heading="Inline, through a partial" }}
+    {{ partial:raster/hero }}
+{{ /partial:panel }}
+
+{{ partial:panel heading="Rasterised" }}
+    <img src="{{ raster:raster/hero }}" alt="" class="w-full rounded-lg ring-1 ring-zinc-950/10">
+{{ /partial:panel }}
+
+{{ partial:panel heading="Automatic mode variants" }}
+    <p class="mb-3 text-sm text-zinc-600">
+        URL signing is <strong>{{ lab:signing }}</strong>: <a href="/lab/signing/on" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">on</a> / <a href="/lab/signing/off" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">off</a>
+    </p>
+    <table class="w-full text-left">
+        <tbody>
+            <tr class="align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero }}" class="underline decoration-zinc-950/20 underline-offset-3">PNG</a></td><td class="py-2 pr-4 font-mono text-xs">raster:raster/hero</td><td class="py-2 text-sm text-zinc-600">The current entry is picked up from the page.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:url src="raster/hero" }}" class="underline decoration-zinc-950/20 underline-offset-3">src</a></td><td class="py-2 pr-4 font-mono text-xs">raster:url src="raster/hero"</td><td class="py-2 text-sm text-zinc-600">Same URL as the wildcard form.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero preview="true" }}" class="underline decoration-zinc-950/20 underline-offset-3">Preview</a></td><td class="py-2 pr-4 font-mono text-xs">preview="true"</td><td class="py-2 text-sm text-zinc-600">Scaled HTML, centred on black.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero type="jpeg" }}" class="underline decoration-zinc-950/20 underline-offset-3">JPEG</a></td><td class="py-2 pr-4 font-mono text-xs">type="jpeg"</td><td class="py-2 text-sm text-zinc-600">image/jpeg, .jpg file name.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero width="600" }}" class="underline decoration-zinc-950/20 underline-offset-3">Width 600</a></td><td class="py-2 pr-4 font-mono text-xs">width="600"</td><td class="py-2 text-sm text-zinc-600">Overrides the tag's width; the basis keeps the layout.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero scale="2" }}" class="underline decoration-zinc-950/20 underline-offset-3">Scale 2</a></td><td class="py-2 pr-4 font-mono text-xs">scale="2"</td><td class="py-2 text-sm text-zinc-600">2400 pixels wide.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero height="400" }}" class="underline decoration-zinc-950/20 underline-offset-3">Height 400</a></td><td class="py-2 pr-4 font-mono text-xs">height="400"</td><td class="py-2 text-sm text-zinc-600">Fixed height, the rest is cut off.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero type="pdf" height="675" }}" class="underline decoration-zinc-950/20 underline-offset-3">PDF</a></td><td class="py-2 pr-4 font-mono text-xs">type="pdf" height="675"</td><td class="py-2 text-sm text-zinc-600">One page, sized in pixels.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero file="share" }}" class="underline decoration-zinc-950/20 underline-offset-3">file</a></td><td class="py-2 pr-4 font-mono text-xs">file="share"</td><td class="py-2 text-sm text-zinc-600">Finding: file is not carried into the URL, so the response is still named raster-hero.png.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero }}&foo=1" class="underline decoration-zinc-950/20 underline-offset-3">Unknown param</a></td><td class="py-2 pr-4 font-mono text-xs">?foo=1</td><td class="py-2 text-sm text-zinc-600">Finding: every request input is called as a method, so this 500s.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/badge transparent="true" }}&transparent=false" class="underline decoration-zinc-950/20 underline-offset-3">transparent=false</a></td><td class="py-2 pr-4 font-mono text-xs">?transparent=false</td><td class="py-2 text-sm text-zinc-600">Finding: the string "false" coerces to true, so the PNG still has alpha.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/cached }}&cache=false" class="underline decoration-zinc-950/20 underline-offset-3">cache=false</a></td><td class="py-2 pr-4 font-mono text-xs">?cache=false</td><td class="py-2 text-sm text-zinc-600">Finding: still cached, the timestamp does not move.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/hero content="topics::seafront" }}" class="underline decoration-zinc-950/20 underline-offset-3">Term</a></td><td class="py-2 pr-4 font-mono text-xs">content="topics::seafront"</td><td class="py-2 text-sm text-zinc-600">A term in the cascade instead of an entry.</td></tr>
+        </tbody>
+    </table>
+{{ /partial:panel }}
+
+{{ partial:panel heading="Caching" }}
+    <img src="{{ raster:raster/cached }}" alt="" class="w-full max-w-md rounded-lg ring-1 ring-zinc-950/10">
+    <p class="mt-3 flex flex-wrap gap-x-4 text-sm text-zinc-500">
+        <a href="{{ raster:raster/cached }}" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">Open</a>
+        <a href="/lab/{{ id }}/cache/clear" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">Forget this entry's images</a>
+    </p>
+{{ /partial:panel }}
+
+{{ partial:panel heading="Manual mode" }}
+    <p class="flex flex-wrap gap-x-4 text-sm text-zinc-500">
+        <a href="/lab/{{ id }}/card" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">Card</a>
+        <a href="/lab/{{ id }}/card/preview" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">Card preview</a>
+        <a href="/lab/{{ id }}/render" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">Render to storage/app/private/renders</a>
+        <a href="/lab/terms/seafront/card" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">Term card</a>
+    </p>
+{{ /partial:panel }}
+
+{{ partial:panel heading="Blade" }}
+    <table class="w-full text-left">
+        <tbody>
+            <tr class="align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ raster:raster/blade-card }}" class="underline decoration-zinc-950/20 underline-offset-3">URL tag</a></td><td class="py-2 pr-4 font-mono text-xs">{{ raster:raster/blade-card }}</td><td class="py-2 text-sm text-zinc-600">A Blade view through the addon's route.</td></tr>
+            <tr class="border-t border-zinc-950/5 align-top"><td class="py-2 pr-4 text-sm font-medium"><a href="{{ lab:helper view="raster.blade-card" }}" class="underline decoration-zinc-950/20 underline-offset-3">raster() helper</a></td><td class="py-2 pr-4 font-mono text-xs">{{ lab:helper view="raster.blade-card" }}</td><td class="py-2 text-sm text-zinc-600">The helper is laravel-raster's, so it builds a URL to laravel-raster's route.</td></tr>
+        </tbody>
+    </table>
+{{ /partial:panel }}

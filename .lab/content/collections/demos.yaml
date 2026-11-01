@@ -1,0 +1,16 @@
+title: Places
+route: '/demos/{slug}'
+layout: demo
+template: demos/show
+sort_by: title
+sort_dir: asc
+revisions: false
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true
+  -
+    label: 'Share card'
+    url: '/!/raster/places.share?width=600'
+    refresh: true

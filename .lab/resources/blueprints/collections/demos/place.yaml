@@ -1,0 +1,53 @@
+title: Place
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              required: true
+              validate:
+                - required
+          -
+            handle: kicker
+            field:
+              type: select
+              display: Kicker
+              options:
+                seafront: Seafront
+                shopping: Shopping
+                landmark: Landmark
+              max_items: 1
+          -
+            handle: summary
+            field:
+              type: textarea
+              display: Summary
+          -
+            handle: theme
+            field:
+              type: button_group
+              display: Theme
+              options:
+                sea: Sea
+                shingle: Shingle
+                sunset: Sunset
+              default: sea
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              display: Slug
+              required: true
+              validate:
+                - required

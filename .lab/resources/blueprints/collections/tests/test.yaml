@@ -1,0 +1,49 @@
+title: Test
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              required: true
+              validate:
+                - required
+          -
+            handle: summary
+            field:
+              type: textarea
+              display: Summary
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              display: Slug
+              required: true
+              validate:
+                - required
+          -
+            handle: date
+            field:
+              type: date
+              display: Date
+              required: true
+              validate:
+                - required
+          -
+            handle: topics
+            field:
+              type: terms
+              display: Topics
+              taxonomies:
+                - topics
+              create: false

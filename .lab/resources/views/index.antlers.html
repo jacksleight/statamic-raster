@@ -1,0 +1,71 @@
+<header>
+    <p class="font-mono text-xs tracking-wide text-zinc-500 uppercase">jacksleight/statamic-raster</p>
+    <h1 class="mt-1 text-2xl font-semibold tracking-tight text-zinc-950">{{ title }}</h1>
+    <p class="mt-2 max-w-[60ch] text-pretty text-zinc-600">Views in resources/views/raster, rendered through the addon's automatic route, through manual routes in routes/web.php, and inline. Each section below links straight to the image URLs.</p>
+    <p class="mt-3 flex flex-wrap gap-x-4 text-sm text-zinc-500">
+        <a href="/cp/collections/tests" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">CP listing</a>
+        <a href="/!/skip/admin" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">Log in</a>
+        <span>URL signing is {{ lab:signing }}: <a href="/lab/signing/on" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">on</a> / <a href="/lab/signing/off" class="underline decoration-zinc-950/20 underline-offset-3 hover:text-zinc-950">off</a></span>
+    </p>
+</header>
+
+{{ partial:panel heading="Tests" }}
+    <ul class="grid gap-3">
+        {{ collection:tests }}
+            <li>
+                <a href="{{ url }}" class="text-sm font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">{{ title }}</a>
+                <p class="mt-0.5 text-sm text-pretty text-zinc-600">{{ summary }}</p>
+            </li>
+        {{ /collection:tests }}
+    </ul>
+{{ /partial:panel }}
+
+{{ partial:panel heading="Data only" }}
+    <div class="flex flex-wrap items-center gap-4">
+        <img src="{{ raster:raster/badge :data="['label' => 'Open', 'color' => '#0f766e']" }}" alt="" class="h-12">
+        <img src="{{ raster:raster/badge :data="['label' => 'Closed', 'color' => '#be123c']" transparent="true" }}" alt="" class="h-12">
+    </div>
+    <ul class="mt-4 space-y-1 font-mono text-xs text-zinc-700">
+        <li><a href="{{ raster:raster/badge :data="['label' => 'Open', 'color' => '#0f766e']" }}" class="underline decoration-zinc-950/20 underline-offset-3">raster:raster/badge :data</a></li>
+        <li><a href="/!/raster/raster.badge?data[label]=Hand+written&data[color]=%234338ca" class="underline decoration-zinc-950/20 underline-offset-3">/!/raster/raster.badge?data[label]=Hand+written&amp;data[color]=%234338ca</a></li>
+        <li><a href="{{ raster:raster/badge :data="['label' => 'Closed', 'color' => '#be123c']" transparent="true" }}" class="underline decoration-zinc-950/20 underline-offset-3">transparent="true"</a></li>
+    </ul>
+{{ /partial:panel }}
+
+{{ partial:panel heading="Protection" }}
+    <ul class="space-y-2 text-sm text-zinc-600">
+        <li><a href="{{ raster:raster/hero content="07eb0307-083b-4626-9df3-7fbbdc84cda7" }}" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Draft</a>, 404s like its page.</li>
+        <li><a href="{{ raster:raster/hero content="2937063e-a9db-4d5c-9e76-213d031dcecc" }}" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Future, private</a>, 404s like its page.</li>
+        <li><a href="{{ raster:raster/hero content="ff7af21a-e1aa-477e-a60b-1c28d38567e6" }}" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Protected</a>, redirects to the login URL when logged out, renders when logged in.</li>
+    </ul>
+{{ /partial:panel }}
+
+{{ partial:panel heading="Errors" }}
+    <ul class="space-y-2 text-sm text-zinc-600">
+        <li><a href="/!/raster/raster.untagged" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Untagged view, automatic route</a>, throws "View must implement raster".</li>
+        <li><a href="/lab/2331ce66-64de-40a4-89eb-19713985dea7/manual-tagged" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Tagged view, manual route</a>, throws "View must not implement raster".</li>
+        <li><a href="/!/raster/raster.hero?content=2331ce66-64de-40a4-89eb-19713985dea7&amp;foo=1" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Unknown query parameter</a>, finding: 500s calling foo() on the Raster object.</li>
+        <li><a href="/faults/url-tag-cache-id" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">cache_id on the URL tag</a>, finding: the URL tag does not camel case, so cache_id() is undefined and the page 500s.</li>
+        <li><a href="/faults/unresolvable-content" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Unresolvable content ID</a>, finding: the URL tag throws a 404 and takes the whole page with it.</li>
+        <li><a href="/!/raster/raster.hero?content=does-not-exist" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Unresolvable content ID, automatic route</a>, 404s.</li>
+    </ul>
+{{ /partial:panel }}
+
+{{ partial:panel heading="Demos" }}
+    <ul class="grid gap-3">
+        {{ collection:demos }}
+            <li>
+                <a href="{{ url }}" class="text-sm font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">{{ title }}</a>
+                <p class="mt-0.5 text-sm text-pretty text-zinc-600">{{ summary }}</p>
+            </li>
+        {{ /collection:demos }}
+    </ul>
+{{ /partial:panel }}
+
+{{ partial:panel heading="Control panel" }}
+    <ul class="space-y-2 text-sm text-zinc-600">
+        <li><a href="/cp/collections/tests/entries/2331ce66-64de-40a4-89eb-19713985dea7" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Published test entry</a>, open Live Preview and pick the Share image target.</li>
+        <li><a href="/cp/collections/demos/entries/426a23d8-2d8a-4a5e-9059-780338f7b794" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Palace Pier demo</a>, Live Preview with the Share card target.</li>
+        <li><a href="/cp/taxonomies/topics/terms/seafront" class="font-medium text-zinc-950 underline decoration-zinc-950/20 underline-offset-3">Seafront term</a></li>
+    </ul>
+{{ /partial:panel }}

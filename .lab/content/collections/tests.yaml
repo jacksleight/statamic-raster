@@ -1,0 +1,22 @@
+title: Tests
+route: '/tests/{slug}'
+layout: layout
+template: tests/show
+date: true
+date_behavior:
+  past: public
+  future: private
+sort_by: date
+sort_dir: asc
+revisions: false
+taxonomies:
+  - topics
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true
+  -
+    label: 'Share image'
+    url: '/!/raster/raster.hero'
+    refresh: true
