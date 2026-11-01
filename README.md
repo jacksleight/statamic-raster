@@ -35,10 +35,6 @@ Then fetch the URL with the `raster:url` tag:
 
 [Statamic Raster Documentation](https://jacksleight.com/code/statamic-raster)
 
-<!-- statamic:hide -->
-
 ## Sponsoring 
 
 This addon is completely free to use. However fixing bugs, adding features and helping users takes time and effort. If you find this useful and would like to support its development any [contribution](https://github.com/sponsors/jacksleight) would be greatly appreciated. Thanks! 🙂
-
-<!-- /statamic:hide -->
