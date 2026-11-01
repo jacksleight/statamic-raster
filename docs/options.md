@@ -30,7 +30,7 @@ The following options can be set with the main tag, the URL tag, or by chaining 
 * **cache (bool, false)**  
   Enable [caching](caching) of generated images.
 * **cache_id (string, '_')**  
-  [Cache](caching) identifier.
+  [Cache](caching) identifier. Main tag and PHP only.
 
 With PDF output a height is required, it will only contain one page, and dimensions are still pixels not mm/inches. If you're looking to generate actual documents from views I highly recommend checking out [spatie/laravel-pdf](https://github.com/spatie/laravel-pdf).
 

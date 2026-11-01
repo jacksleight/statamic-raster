@@ -34,7 +34,10 @@ class Raster extends Tags
     {
         $name = Str::replace('/', '.', $this->params['src']);
 
-        $params = $this->params->except('src');
+        $params = $this->params
+            ->except('src')
+            ->mapWithKeys(fn ($value, $name) => [Str::camel($name) => $value])
+            ->all();
 
         if (! isset($params['content'])) {
             $params['content'] = $this->context->get('page');
