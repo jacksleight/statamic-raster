@@ -25,4 +25,4 @@ Either way the [options](options) are the same, as are [caching](caching), [secu
 
 ## Laravel Raster
 
-This addon builds on the [Laravel Raster](https://jacksleight.com/code/laravel-raster) package, adding Antlers support, the entry cascade, live preview and Statamic's content protection. Blade views work too, exactly as they do in that package.
+This addon builds on the [Laravel Raster](https://github.com/jacksleight/laravel-raster/tree/main/docs) package, adding Antlers support, the entry cascade, live preview and Statamic's content protection. Blade views work too, exactly as they do in that package.

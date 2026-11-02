@@ -33,7 +33,7 @@ Then fetch the URL with the `raster:url` tag:
 
 ## Documentation
 
-[Statamic Raster Documentation](https://jacksleight.com/code/statamic-raster)
+[Statamic Raster Documentation](https://github.com/jacksleight/statamic-raster/tree/main/docs)
 
 ## Sponsoring 
 
