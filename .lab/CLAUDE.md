@@ -120,4 +120,4 @@ Entry files are baked verbatim, UUIDs included. There is no seed script.
 
 ## Skip (local login)
 
-Local-only login bypass from the machine's skip package (`~/Packages/skip`), configured in `.claude/skip.json`: `GET /!/skip/{handle}` logs in as `{handle}@example.test` and lands on `?redirect=` (a path on this site) or the handle's own `redirect`. Example: `/!/skip/admin`. A listed handle with no user yet is created on its first login, with the password `password`.
+Local-only login bypass from the machine's skip package (`~/Packages/skip`), configured in `.tide/skip.json`: `GET /!/skip/{handle}` logs in as `{handle}@example.test` and lands on `?redirect=` (a path on this site) or the handle's own `redirect`. Example: `/!/skip/admin`. A listed handle with no user yet is created on its first login, with the password `password`.
