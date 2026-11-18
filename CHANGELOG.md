@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.1 (2026-11-18)
 - [fix] Unknown views returning a 500 from the route, they now return a 404
 
 ## 1.0.0 (2026-11-02)
