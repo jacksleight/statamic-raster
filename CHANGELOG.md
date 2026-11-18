@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- [fix] Unknown views returning a 500 from the route, they now return a 404
+
 ## 1.0.0 (2026-11-02)
 - [break] Only option parameters are read from the URL, anything else is ignored and `cache_id` can no longer be set there
 - [break] Cache path defaults to `raster` when a cache disk is set, published configs need the same default

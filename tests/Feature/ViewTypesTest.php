@@ -23,3 +23,7 @@ test('antlers views cannot be rasterised by laravel raster', function () {
 test('antlers views can be rasterised by the addon', function () {
     expect(Raster::make('probe'))->toBeInstanceOf(Raster::class);
 });
+
+test('unknown views return a 404', function () {
+    $this->get('/!/raster/nope')->assertNotFound();
+});
